@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 final class JsonHelper {
 
     @Nullable
-    public static <T> T fromJsonString(String jsonString, Class<T> toModel) {
+    static <T> T fromJsonString(String jsonString, Class<T> toModel) {
         Gson gson = new Gson();
         try {
             return gson.fromJson(jsonString, toModel);
@@ -24,7 +24,7 @@ final class JsonHelper {
     }
 
 
-    public static <T> String toJsonString(T object, Class<T> fromModel) {
+    static <T> String toJsonString(T object, Class<T> fromModel) {
         Gson gson = new Gson();
 
         try {

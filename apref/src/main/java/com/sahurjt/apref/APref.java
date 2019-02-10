@@ -36,7 +36,7 @@ public class APref<T> {
 
     @SuppressWarnings("unchecked")
     public static <T> APref<T> getInstance(Class<T> classType) {
-        return new APref<T>(classType);
+        return new APref<>(classType);
     }
 
     /**
