@@ -25,17 +25,14 @@ final class PrefBase {
         return getPreferences().edit();
     }
 
-    public String getString(String key) {
+    String getString(String key) {
         return getPreferences().getString(key, EMPTY_STRING);
     }
 
-    public boolean saveString(String key, String value) {
-        return getPreferenceEditor().putString(key, value).commit();
-    }
-
-    public boolean clearPreferences() {
-        return getPreferenceEditor().clear().commit();
+    void setString(String key, String value) {
+        getPreferenceEditor().putString(key, value).apply();
     }
 
     //// TODO: create a callback event,which will notify if some data is commited
+
 }
