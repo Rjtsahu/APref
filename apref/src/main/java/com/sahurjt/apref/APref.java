@@ -50,7 +50,7 @@ public class APref<T> {
      * Gets the class name for generic model
      */
     private String getClassName() {
-        return object.getClass().getName();
+        return this.mClassType.getSimpleName();
     }
 
     /**
@@ -73,7 +73,7 @@ public class APref<T> {
      * Saved the changes made on this.object to file system.
      * */
     public void commit() {
-       mSharedPreferenceBase.setString(this.getClassName(),JsonHelper.toJsonString(this.object,this.mClassType));
+        mSharedPreferenceBase.setString(this.getClassName(),JsonHelper.toJsonString(this.object,this.mClassType));
     }
 
 }
