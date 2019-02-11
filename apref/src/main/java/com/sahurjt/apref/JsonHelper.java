@@ -10,16 +10,17 @@ final class JsonHelper {
     @Nullable
     static <T> T fromJsonString(String jsonString, Class<T> toModel) {
         Gson gson = new Gson();
-        try {
-            return gson.fromJson(jsonString, toModel);
-        } catch (Exception e) {
-            Log.e("library-pref",
-                    String.format("Error in mapping JsonString:%s with model:%s", jsonString, toModel));
+        T data = gson.fromJson(jsonString, toModel);
+
+        if (data == null) {
             try {
                 return toModel.newInstance();
-            } catch (InstantiationException | IllegalAccessException e1) {
+            } catch (InstantiationException | IllegalAccessException e) {
+                e.printStackTrace();
                 return null;
             }
+        } else {
+            return data;
         }
     }
 

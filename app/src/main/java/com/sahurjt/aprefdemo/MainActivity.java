@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (mSettings != null) {
-                    mSettings.reset(false);
+                    mSettings.reset( false);
                     loadValues();
                     Toast.makeText(getBaseContext(),"Data reloaded",Toast.LENGTH_LONG).show();
                 }
@@ -58,9 +58,9 @@ public class MainActivity extends Activity {
     }
 
     private void loadValues() {
-        mName.setText(mSettings.object.name);
-        mAge.setText(mSettings.object.age);
-        mCity.setText(mSettings.object.city);
+        mName.setText(String.valueOf(mSettings.object.name));
+        mAge.setText(String.valueOf(mSettings.object.age));
+        mCity.setText(String.valueOf(mSettings.object.city));
     }
 
 }
