@@ -12,6 +12,9 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        // dependencies related to jfrog and bintray
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
     }
 }
 
@@ -22,6 +25,11 @@ allprojects {
     }
 }
 
+subprojects {
+    tasks.withType(Javadoc).all {enabled = false}
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
