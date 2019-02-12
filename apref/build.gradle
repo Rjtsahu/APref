@@ -1,4 +1,27 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+ext{
+    bintrayRepo = "APref"
+    bintrayName = "com.sahurjt.apref"
+
+    libraryName = 'apref'
+
+    publishedGroupId = 'com.sahurjt.apref'
+    artifact = 'apref'
+    libraryVersion = '1.0.0'
+
+    libraryDescription = 'Android library to handle shared preferences using Java object.'
+    siteUrl = 'https://github.com/Rjtsahu/APref'
+    gitUrl = 'https://github.com/Rjtsahu/APref.git'
+    developerId = 'sahurjt'
+    developerName = 'Rajat Sahu'
+    developerEmail = 'sahurjt@gmail.com'
+    licenseName = 'The Apache Software License,Version 2.0'
+    licenseUrl = 'http://www.apache.org/licences/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
 
 android {
     compileSdkVersion 27
@@ -32,4 +55,15 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.google.code.gson:gson:2.8.5'
+}
+
+repositories{
+    mavenCentral()
+}
+
+// script to push upload library to bintray
+
+if(project.rootProject.file('local.properties').exists()){
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
 }
